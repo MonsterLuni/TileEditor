@@ -22,6 +22,7 @@ public class MouseHandler implements MouseMotionListener, MouseListener {
         int fieldY = (int) Math.floor((double)(location.y - ui.startY) / ui.step) + ui.differenceY;
         if(ui.selectedTile != null){
             ui.clicked[fieldX + (fieldY * ui.rowYLength)] = ui.selectedTile;
+            ui.saved = false;
         }
     }
 

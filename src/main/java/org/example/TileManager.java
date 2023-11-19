@@ -20,7 +20,7 @@ public class TileManager {
         int i = 0;
         chooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter(
-                "JPG & PNG Images", "jpg", "png");
+                "PNG Images", "png");
         chooser.setFileFilter(filter);
         chooser.setMultiSelectionEnabled(true);
         chooser.showOpenDialog(gp);
@@ -79,6 +79,7 @@ public class TileManager {
             myWriter.write(map);
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
+            gp.ui.saved = true;
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();

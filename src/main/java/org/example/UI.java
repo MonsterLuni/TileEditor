@@ -40,9 +40,20 @@ public class UI {
     public final int step = 40;
     int differenceX = 0;
     int differenceY = 0;
+    public boolean saved = false;
     public int rowYLength = 50;
     public void drawEndButton(){
-        g2.drawRect(1000,200,step,step);
+
+        if(saved){
+            g2.drawString("Saved!",1010,190);
+            g2.setColor(Color.green);
+            g2.fillRect(1000,200,step*2,step);
+        }
+        else {
+            g2.drawString("Save",1010,190);
+            g2.setColor(Color.red);
+            g2.fillRect(1000,200,step*2,step);
+        }
     }
 
     public void drawTileSelectionField(){
@@ -120,7 +131,7 @@ public class UI {
     }
     public void drawFieldOfViewInEntireField(){
         int step = 15;
-        g2.setColor(Color.green);
+        g2.setColor(Color.blue);
         g2.drawRect(startEntireFieldX + (step*differenceX),startY + (step*differenceY),15*step,15*step);
     }
     public void drawTileField(){

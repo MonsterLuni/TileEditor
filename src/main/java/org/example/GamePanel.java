@@ -6,28 +6,23 @@ import java.awt.image.BufferedImage;
 
 public class GamePanel extends JPanel implements Runnable {
     public TileManager tManager = new TileManager(this);
-    public UI ui = new UI(this,this.tManager);
-    MouseHandler mouseL = new MouseHandler(this, this.ui);
-    KeyHandler keyL = new KeyHandler(this, this.ui);
-    Thread editThread;
-    BufferedImage tempScreen;
-    Graphics2D g2;
-    // FPS
-    int drawCount = 0;
-    long timer = 0;
-    int FPS = 60;
-    int currentFps = FPS;
+    UI ui = new UI(this,this.tManager);
+    private Thread editThread;
+    private BufferedImage tempScreen;
+    private Graphics2D g2;
+    private long timer = 0;
     public final int screenWidth = 1920;
     public final int screenHeight = 1080;
-    public double drawInterval = (double) 1000000000 /FPS;
-    int screenWidth2 = screenWidth;
-    int screenHeight2 = screenHeight;
+    private int screenWidth2 = screenWidth;
+    private int screenHeight2 = screenHeight;
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true);
+        MouseHandler mouseL = new MouseHandler(this, this.ui);
         this.addMouseMotionListener(mouseL);
         this.addMouseListener(mouseL);
+        KeyHandler keyL = new KeyHandler(this, this.ui);
         this.addKeyListener(keyL);
         this.setFocusable(true);
     }
@@ -39,6 +34,8 @@ public class GamePanel extends JPanel implements Runnable {
 
         while(editThread != null){
             currentTime = System.nanoTime(); // returns the time from the Java Engine
+            int FPS = 60;
+            double drawInterval = (double) 1000000000 / FPS;
             delta += (currentTime - lastTime) / drawInterval;
             timer += currentTime - lastTime;
             lastTime = currentTime;
@@ -47,11 +44,8 @@ public class GamePanel extends JPanel implements Runnable {
                 drawToTempScreen();
                 drawToScreen();
                 delta--;
-                drawCount++;
             }
             if(timer >= 1000000000){
-                currentFps = drawCount;
-                drawCount = 0;
                 timer = 0;
             }
         }
