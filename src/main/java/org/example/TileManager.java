@@ -34,13 +34,17 @@ public class TileManager {
         }
         System.out.println(Arrays.toString(tiles));
     }
+    String name = "Map";
+    int time = 0;
     public void CreateFile(){
             try {
-                File myObj = new File("filename.txt");
+                File myObj = new File(name + ".txt");
                 if (myObj.createNewFile()) {
                     System.out.println("File created: " + myObj.getName());
                 } else {
                     System.out.println("File already exists.");
+                    name = "Map" + time++;
+                    CreateFile();
                 }
             } catch (IOException e) {
                 System.out.println("An error occurred.");
@@ -49,9 +53,18 @@ public class TileManager {
     }
     public void WriteToFile() {
         try {
-            FileWriter myWriter = new FileWriter("filename.txt");
+            FileWriter myWriter = new FileWriter(name + ".txt");
             String map = "";
             int percentage = 0;
+            int o = 0;
+            int defaultTile = 0;
+            for (BufferedImage tile:
+                    tiles) {
+                if(tile == gp.ui.defaultTile){
+                    defaultTile = o;
+                }
+                o++;
+            }
 
             for(int i = 0; i < 50; i++){
                 for(int l = 0; l < 50; l++){
@@ -66,8 +79,7 @@ public class TileManager {
                         }
                     }
                     else {
-                        map = map + 0;
-                        map = map + " ";
+                        map = map + defaultTile + " ";
                     }
 
                 }

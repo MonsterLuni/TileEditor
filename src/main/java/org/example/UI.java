@@ -10,10 +10,12 @@ public class UI {
     TileManager tManager;
     public BufferedImage[] clicked = new BufferedImage[2500];
     public BufferedImage selectedTile = null;
+    public BufferedImage defaultTile;
     public UI(GamePanel gp, TileManager tManager){
         this.gp = gp;
         this.tManager = tManager;
         setTiles();
+        defaultTile = tManager.tiles[0];
     }
     public void draw(Graphics2D g2){
         this.g2 = g2;
@@ -62,13 +64,17 @@ public class UI {
         for(int i = 0; i < 5; i++){
             for(int l = 0; l < 15; l++){
                 if (tManager.tiles[l + (i * rowYLength)] != null){
-                    g2.drawImage(tManager.tiles[l + (i * rowYLength)],x,y,step,step,null);
-                    if(tManager.tiles[l + (i * rowYLength)] == selectedTile){
-                        g2.setStroke(new BasicStroke(3));
+                    g2.setStroke(new BasicStroke(3));
+                    if(tManager.tiles[l + (i * rowYLength)] == defaultTile){
+                        g2.setColor(new Color(255, 0, 0));
+                        g2.fillRect(x,y,step,step);
+                    }
+                    else if(tManager.tiles[l + (i * rowYLength)] == selectedTile){
                         g2.setColor(new Color(0, 255, 222));
                         g2.drawRect(x,y,step,step);
                     }
                     g2.setStroke(new BasicStroke());
+                    g2.drawImage(tManager.tiles[l + (i * rowYLength)],x,y,step,step,null);
                 }
                 g2.setColor(Color.white);
                 g2.drawRect(x,y,step,step);

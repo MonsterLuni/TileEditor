@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="af05f1da-3a2a-4550-b61c-f5d682c6cf02" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MouseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MouseHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TileManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/UI.java" afterDir="false" />
@@ -119,7 +118,7 @@
       <workItem from="1700394337144" duration="3921000" />
       <workItem from="1700409205240" duration="157000" />
       <workItem from="1700409374573" duration="493000" />
-      <workItem from="1700417176357" duration="871000" />
+      <workItem from="1700417176357" duration="1932000" />
     </task>
     <task id="LOCAL-00001" summary="add Function to select Field">
       <option name="closed" value="true" />
@@ -161,7 +160,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700409406476</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add visual representation if map saving is done or not">
+      <option name="closed" value="true" />
+      <created>1700418086032</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1700418086032</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,6 +180,7 @@
     <MESSAGE value="add Support for 50x50 maps (or everything else really)" />
     <MESSAGE value="add dragging support for tile placement" />
     <MESSAGE value="add map to tell where you are currently in the TileEditor" />
-    <option name="LAST_COMMIT_MESSAGE" value="add map to tell where you are currently in the TileEditor" />
+    <MESSAGE value="add visual representation if map saving is done or not" />
+    <option name="LAST_COMMIT_MESSAGE" value="add visual representation if map saving is done or not" />
   </component>
 </project>

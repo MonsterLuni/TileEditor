@@ -15,7 +15,12 @@ public class MouseHandler implements MouseMotionListener, MouseListener {
     public void getSelectionField(Point location){
         int fieldX = (int) Math.floor((double)(location.x - ui.startSelectionX) / ui.step);
         int fieldY = (int) Math.floor((double)(location.y - ui.startSelectionY) / ui.step);
-        ui.selectedTile = gp.tManager.tiles[fieldX + (fieldY * 15)];
+        if(ui.selectedTile == gp.tManager.tiles[fieldX + (fieldY * 15)]){
+            ui.defaultTile = gp.tManager.tiles[fieldX + (fieldY * 15)];
+        }
+        else{
+            ui.selectedTile = gp.tManager.tiles[fieldX + (fieldY * 15)];
+        }
     }
     public void getField(Point location){
         int fieldX = (int) Math.floor((double)(location.x - ui.startX) / ui.step) + ui.differenceX;
@@ -42,10 +47,12 @@ public class MouseHandler implements MouseMotionListener, MouseListener {
                     location.y > ui.startSelectionY && location.y < ui.startSelectionY + (ui.step * 5)){
                 getSelectionField(location);
             }
-            else if(location.x > 1000 && location.x < 1000 + (ui.step) &&
+            else if(location.x > 1000 && location.x < 1000 + (ui.step*2) &&
                     location.y > 200 && location.y < 200 + (ui.step)){
-                gp.tManager.CreateFile();
-                gp.tManager.WriteToFile();
+                if(!ui.saved){
+                    gp.tManager.CreateFile();
+                    gp.tManager.WriteToFile();
+                }
             }
             else if(location.x > ui.startEntireFieldX && location.x < ui.startEntireFieldX + (15 * 50) &&
                     location.y > ui.startY && location.y < ui.startY + (15 * 50)){
