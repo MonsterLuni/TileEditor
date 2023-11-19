@@ -5,7 +5,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class GamePanel extends JPanel implements Runnable {
-    public UI ui = new UI(this);
+    public TileManager tManager = new TileManager(this);
+    public UI ui = new UI(this,this.tManager);
     MouseHandler mouseL = new MouseHandler(this, this.ui);
     Thread editThread;
     BufferedImage tempScreen;
@@ -39,7 +40,7 @@ public class GamePanel extends JPanel implements Runnable {
             timer += currentTime - lastTime;
             lastTime = currentTime;
             if(delta >= 1){
-                update(); // 1 UPDATE: update information such as character positions
+                update();
                 drawToTempScreen(g2);
                 drawToScreen();
                 delta--;

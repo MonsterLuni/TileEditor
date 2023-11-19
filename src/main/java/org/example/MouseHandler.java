@@ -20,18 +20,26 @@ public class MouseHandler implements MouseListener {
             // clicked inside of Field
             getField(location);
         }
+        else if(location.x > ui.startSelectionX && location.x < ui.startSelectionX + (ui.step * 15) &&
+                location.y > ui.startSelectionY && location.y < ui.startSelectionY + (ui.step * 5)){
+            getSelectionField(location);
+        }
+    }
+    public void getSelectionField(Point location){
+        int fieldX = (int) Math.floor((double)(location.x - ui.startSelectionX) / ui.step);
+        int fieldY = (int) Math.floor((double)(location.y - ui.startSelectionY) / ui.step);
+        ui.selectedTile = gp.tManager.tiles[fieldX + (fieldY * 15)];
     }
     public void getField(Point location){
         int fieldX = (int) Math.floor((double)(location.x - ui.startX) / ui.step);
         int fieldY = (int) Math.floor((double)(location.y - ui.startY) / ui.step);
-        ui.selected[fieldX + (fieldY * 15)] = true;
+        if(ui.selectedTile != null){
+            ui.clicked[fieldX + (fieldY * 15)] = ui.selectedTile;
+        }
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        if(MouseEvent.MOUSE_DRAGGED == 506) {
-            //System.out.println("Dragged");
-        }
     }
 
     @Override
