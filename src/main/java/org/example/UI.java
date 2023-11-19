@@ -2,12 +2,13 @@ package org.example;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.Objects;
 
 public class UI {
     GamePanel gp;
     Graphics2D g2;
     TileManager tManager;
-    public BufferedImage[] clicked = new BufferedImage[225];
+    public BufferedImage[] clicked = new BufferedImage[2500];
     public BufferedImage selectedTile = null;
     public UI(GamePanel gp, TileManager tManager){
         this.gp = gp;
@@ -22,6 +23,7 @@ public class UI {
         drawTitle();
         drawTileSelectionField();
         drawTileField();
+        drawEndButton();
     }
     public void setTiles(){
         tManager.loadTiles();
@@ -33,15 +35,22 @@ public class UI {
     public int startSelectionY = 850;
     public int startSelectionX = 200;
     public int startX = 200;
-    public int step = 40;
+    public final int step = 40;
+    int differenceX = 0;
+    int differenceY = 0;
+    public int rowYLength = 50;
+    public void drawEndButton(){
+        g2.drawRect(1000,200,step,step);
+    }
+
     public void drawTileSelectionField(){
         int y = startSelectionY;
         int x = startSelectionX;
         for(int i = 0; i < 5; i++){
             for(int l = 0; l < 15; l++){
-                if (tManager.tiles[l + (i * 15)] != null){
-                    g2.drawImage(tManager.tiles[l + (i * 15)],x,y,step,step,null);
-                    if(tManager.tiles[l + (i * 15)] == selectedTile){
+                if (tManager.tiles[l + (i * rowYLength)] != null){
+                    g2.drawImage(tManager.tiles[l + (i * rowYLength)],x,y,step,step,null);
+                    if(tManager.tiles[l + (i * rowYLength)] == selectedTile){
                         g2.setStroke(new BasicStroke(3));
                         g2.setColor(new Color(0, 255, 222));
                         g2.drawRect(x,y,step,step);
@@ -56,13 +65,44 @@ public class UI {
             x = startSelectionX;
         }
     }
+    public void moveCanvas(String axis, int amount) {
+        System.out.println(axis + " " + amount);
+        if(amount > 0){
+            if(Objects.equals(axis, "X")){
+                differenceX++;
+                if(differenceX > 35){
+                    differenceX = 35;
+                }
+            }
+            else {
+                differenceY++;
+                if(differenceY > 35){
+                    differenceY = 35;
+                }
+            }
+        }
+        else {
+            if(Objects.equals(axis, "X")){
+                differenceX--;
+                if(differenceX < 0){
+                    differenceX = 0;
+                }
+            }
+            else {
+                differenceY--;
+                if(differenceY < 0){
+                    differenceY = 0;
+                }
+            }
+        }
+    }
     public void drawTileField(){
         int y = startY;
         int x = startX;
-        for(int i = 0; i < 15; i++){
-            for(int l = 0; l < 15; l++){
-                if(clicked[l + (i * 15)] != null){
-                    g2.drawImage(clicked[l + (i * 15)],x,y,step,step,null);
+        for(int i = differenceY; i < 15 + differenceY; i++){
+            for(int l = differenceX; l < 15 + differenceX; l++){
+                if(clicked[l + (i * rowYLength)] != null){
+                    g2.drawImage(clicked[l + (i * rowYLength)],x,y,step,step,null);
                 }
                 g2.setColor(Color.white);
                 g2.drawRect(x,y,step,step);

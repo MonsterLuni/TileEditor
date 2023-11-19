@@ -3,14 +3,16 @@ package org.example;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 
 public class TileManager {
     JFileChooser chooser;
-    public BufferedImage[] tiles = new BufferedImage[75];
+    public BufferedImage[] tiles = new BufferedImage[2500];
     GamePanel gp;
     public TileManager(GamePanel gp){
         this.gp = gp;
@@ -32,5 +34,53 @@ public class TileManager {
             i++;
         }
         System.out.println(Arrays.toString(tiles));
+    }
+    public void CreateFile(){
+            try {
+                File myObj = new File("filename.txt");
+                if (myObj.createNewFile()) {
+                    System.out.println("File created: " + myObj.getName());
+                } else {
+                    System.out.println("File already exists.");
+                }
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+    }
+    public void WriteToFile() {
+        try {
+            FileWriter myWriter = new FileWriter("filename.txt");
+            String map = "";
+
+            for(int i = 0; i < gp.ui.rowYLength; i++){
+                for(int l = 0; l < 50; l++){
+                    if(gp.ui.clicked[l + (i * gp.ui.rowYLength)] != null){
+                        int j = 0;
+                        for (BufferedImage tile:
+                            tiles) {
+                            if(tile == gp.ui.clicked[l + (i * gp.ui.rowYLength)]){
+                                map = map + j;
+                                map = map + " ";
+                            }
+                            j++;
+                            System.out.println(map);
+                        }
+                    }
+                    else {
+                        map = map + 0;
+                        map = map + " ";
+                    }
+                }
+                map = map + "\n";
+            }
+
+            myWriter.write(map);
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
 }

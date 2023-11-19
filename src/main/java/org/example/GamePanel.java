@@ -8,6 +8,7 @@ public class GamePanel extends JPanel implements Runnable {
     public TileManager tManager = new TileManager(this);
     public UI ui = new UI(this,this.tManager);
     MouseHandler mouseL = new MouseHandler(this, this.ui);
+    KeyHandler keyL = new KeyHandler(this, this.ui);
     Thread editThread;
     BufferedImage tempScreen;
     Graphics2D g2;
@@ -26,6 +27,7 @@ public class GamePanel extends JPanel implements Runnable {
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true);
         this.addMouseListener(mouseL);
+        this.addKeyListener(keyL);
         this.setFocusable(true);
     }
     @Override
