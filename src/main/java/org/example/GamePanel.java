@@ -26,6 +26,7 @@ public class GamePanel extends JPanel implements Runnable {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true);
+        this.addMouseMotionListener(mouseL);
         this.addMouseListener(mouseL);
         this.addKeyListener(keyL);
         this.setFocusable(true);

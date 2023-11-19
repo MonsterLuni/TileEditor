@@ -52,26 +52,28 @@ public class TileManager {
         try {
             FileWriter myWriter = new FileWriter("filename.txt");
             String map = "";
+            int percentage = 0;
 
-            for(int i = 0; i < gp.ui.rowYLength; i++){
+            for(int i = 0; i < 50; i++){
                 for(int l = 0; l < 50; l++){
                     if(gp.ui.clicked[l + (i * gp.ui.rowYLength)] != null){
                         int j = 0;
                         for (BufferedImage tile:
                             tiles) {
                             if(tile == gp.ui.clicked[l + (i * gp.ui.rowYLength)]){
-                                map = map + j;
-                                map = map + " ";
+                                map = map + j + " ";
                             }
                             j++;
-                            System.out.println(map);
                         }
                     }
                     else {
                         map = map + 0;
                         map = map + " ";
                     }
+
                 }
+                percentage += 2;
+                System.out.println("loading " + percentage + "%");
                 map = map + "\n";
             }
 

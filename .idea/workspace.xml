@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af05f1da-3a2a-4550-b61c-f5d682c6cf02" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/KeyHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MouseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MouseHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TileManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/UI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,6 +109,9 @@
       <workItem from="1700389165487" duration="362000" />
       <workItem from="1700389892244" duration="492000" />
       <workItem from="1700390412557" duration="1780000" />
+      <workItem from="1700392266845" duration="1335000" />
+      <workItem from="1700393655223" duration="577000" />
+      <workItem from="1700394337144" duration="3000" />
     </task>
     <task id="LOCAL-00001" summary="add Function to select Field">
       <option name="closed" value="true" />
@@ -128,7 +129,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700387416424</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add Support for 50x50 maps (or everything else really)">
+      <option name="closed" value="true" />
+      <created>1700392284040</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1700392284040</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,6 +146,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add Function to select Field" />
     <MESSAGE value="add Function to add own Sprites" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Function to add own Sprites" />
+    <MESSAGE value="add Support for 50x50 maps (or everything else really)" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Support for 50x50 maps (or everything else really)" />
   </component>
 </project>
