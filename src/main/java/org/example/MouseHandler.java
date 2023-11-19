@@ -46,6 +46,10 @@ public class MouseHandler implements MouseMotionListener, MouseListener {
                 gp.tManager.CreateFile();
                 gp.tManager.WriteToFile();
             }
+            else if(location.x > ui.startEntireFieldX && location.x < ui.startEntireFieldX + (15 * 50) &&
+                    location.y > ui.startY && location.y < ui.startY + (15 * 50)){
+                getFieldEntireField(location);
+            }
     }
 
     @Override
@@ -70,6 +74,29 @@ public class MouseHandler implements MouseMotionListener, MouseListener {
                 location.y > ui.startY && location.y < ui.startY + (ui.step * 15)){
             // clicked inside of Field
             getField(location);
+        }
+        else if(location.x > ui.startEntireFieldX && location.x < ui.startEntireFieldX + (15 * 50) &&
+                location.y > ui.startY && location.y < ui.startY + (15 * 50)){
+            getFieldEntireField(location);
+        }
+    }
+    public void getFieldEntireField(Point location){
+        int fieldX = (int) Math.floor((double)(location.x - ui.startEntireFieldX) / 15);
+        int fieldY = (int) Math.floor((double)(location.y - ui.startY) / 15);
+
+        ui.differenceX = fieldX - 7;
+        ui.differenceY = fieldY - 7;
+        if(ui.differenceX < 0){
+            ui.differenceX = 0;
+        }
+        if(ui.differenceY < 0){
+            ui.differenceY = 0;
+        }
+        if(ui.differenceX > 35){
+            ui.differenceX = 35;
+        }
+        if(ui.differenceY > 35){
+            ui.differenceY = 35;
         }
     }
 

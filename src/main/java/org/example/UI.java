@@ -24,6 +24,8 @@ public class UI {
         drawTileSelectionField();
         drawTileField();
         drawEndButton();
+        drawEntireField();
+        drawFieldOfViewInEntireField();
     }
     public void setTiles(){
         tManager.loadTiles();
@@ -95,6 +97,31 @@ public class UI {
                 }
             }
         }
+    }
+    int startEntireFieldX = 1100;
+    public void drawEntireField(){
+        g2.setStroke(new BasicStroke(0.5f));
+        int y = startY;
+        int x = startEntireFieldX;
+        int step = 15;
+        g2.drawRect(startEntireFieldX,startY,step*50,step*50);
+        for(int i = 0; i < 50; i++){
+            for(int l = 0; l < 50; l++){
+                if(clicked[l + (i * rowYLength)] != null){
+                    g2.drawImage(clicked[l + (i * rowYLength)],x,y,step,step,null);
+                }
+                g2.setColor(Color.white);
+                x += step;
+            }
+            y += step;
+            x = startEntireFieldX;
+        }
+        g2.setStroke(new BasicStroke());
+    }
+    public void drawFieldOfViewInEntireField(){
+        int step = 15;
+        g2.setColor(Color.green);
+        g2.drawRect(startEntireFieldX + (step*differenceX),startY + (step*differenceY),15*step,15*step);
     }
     public void drawTileField(){
         int y = startY;

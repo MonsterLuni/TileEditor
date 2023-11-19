@@ -44,7 +44,7 @@ public class GamePanel extends JPanel implements Runnable {
             lastTime = currentTime;
             if(delta >= 1){
                 update();
-                drawToTempScreen(g2);
+                drawToTempScreen();
                 drawToScreen();
                 delta--;
                 drawCount++;
@@ -69,20 +69,20 @@ public class GamePanel extends JPanel implements Runnable {
     public void update(){
     }
     public void setUpPanel(){
-        tempScreen = new BufferedImage(screenWidth, screenHeight,BufferedImage.TYPE_INT_ARGB);
-        g2 = (Graphics2D) tempScreen.getGraphics();
         setFullScreen();
+        tempScreen = new BufferedImage(screenWidth2, screenHeight2,BufferedImage.TYPE_INT_ARGB);
+        g2 = (Graphics2D) tempScreen.getGraphics();
     }
     public void startGameThread(){
         editThread = new Thread(this);
         editThread.start(); // calls run()
     }
-    public void drawToTempScreen(Graphics g){
+    public void drawToTempScreen(){
         ui.draw(g2);
     }
     public void drawToScreen(){
         Graphics g = getGraphics();
-        g.drawImage(tempScreen,0,0, screenWidth,screenHeight,null);
+        g.drawImage(tempScreen,0,0, screenWidth2,screenHeight2,null);
         g.dispose();
     }
 }
