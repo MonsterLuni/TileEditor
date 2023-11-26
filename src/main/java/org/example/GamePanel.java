@@ -5,8 +5,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class GamePanel extends JPanel implements Runnable {
-    public TileManager tManager = new TileManager(this);
-    UI ui = new UI(this,this.tManager);
+    public TileManager tManager;
+    UI ui;
     private Thread editThread;
     private BufferedImage tempScreen;
     private Graphics2D g2;
@@ -16,6 +16,8 @@ public class GamePanel extends JPanel implements Runnable {
     private int screenWidth2 = screenWidth;
     private int screenHeight2 = screenHeight;
     public GamePanel(){
+        tManager = new TileManager(this);
+        ui = new UI(this,this.tManager);
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true);
@@ -40,7 +42,6 @@ public class GamePanel extends JPanel implements Runnable {
             timer += currentTime - lastTime;
             lastTime = currentTime;
             if(delta >= 1){
-                update();
                 drawToTempScreen();
                 drawToScreen();
                 delta--;
@@ -59,8 +60,6 @@ public class GamePanel extends JPanel implements Runnable {
         // GET FULL SCREEN WIDTH AND HEIGHT
         screenWidth2 = Main.window.getWidth();
         screenHeight2 = Main.window.getHeight();
-    }
-    public void update(){
     }
     public void setUpPanel(){
         setFullScreen();

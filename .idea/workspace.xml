@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af05f1da-3a2a-4550-b61c-f5d682c6cf02" name="Changes" comment="">
+    <list default="true" id="af05f1da-3a2a-4550-b61c-f5d682c6cf02" name="Changes" comment="add changing of default tile for background + .txt files&#10;don't get overwritten now">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MouseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MouseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TileManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/UI.java" afterDir="false" />
     </list>
@@ -118,7 +118,15 @@
       <workItem from="1700394337144" duration="3921000" />
       <workItem from="1700409205240" duration="157000" />
       <workItem from="1700409374573" duration="493000" />
-      <workItem from="1700417176357" duration="1932000" />
+      <workItem from="1700417176357" duration="2781000" />
+      <workItem from="1700755717594" duration="312000" />
+      <workItem from="1700937211036" duration="518000" />
+      <workItem from="1700937791217" duration="4296000" />
+      <workItem from="1700945781515" duration="601000" />
+      <workItem from="1700998446784" duration="147000" />
+      <workItem from="1701011360421" duration="91000" />
+      <workItem from="1701011526556" duration="156000" />
+      <workItem from="1701013999134" duration="6000" />
     </task>
     <task id="LOCAL-00001" summary="add Function to select Field">
       <option name="closed" value="true" />
@@ -168,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700418086032</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add changing of default tile for background + .txt files&#10;don't get overwritten now">
+      <option name="closed" value="true" />
+      <created>1700419158536</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1700419158536</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,6 +197,7 @@
     <MESSAGE value="add dragging support for tile placement" />
     <MESSAGE value="add map to tell where you are currently in the TileEditor" />
     <MESSAGE value="add visual representation if map saving is done or not" />
-    <option name="LAST_COMMIT_MESSAGE" value="add visual representation if map saving is done or not" />
+    <MESSAGE value="add changing of default tile for background + .txt files&#10;don't get overwritten now" />
+    <option name="LAST_COMMIT_MESSAGE" value="add changing of default tile for background + .txt files&#10;don't get overwritten now" />
   </component>
 </project>

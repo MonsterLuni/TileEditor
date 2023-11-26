@@ -1,7 +1,12 @@
 package org.example;
 
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class UI {
@@ -31,6 +36,39 @@ public class UI {
     }
     public void setTiles(){
         tManager.loadTiles();
+        CreateMapFromFile();
+    }
+    JFileChooser chooser;
+    public void CreateMapFromFile(){
+        try {
+            chooser = new JFileChooser();
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("txt Map Loading", "txt");
+            chooser.setFileFilter(filter);
+            chooser.setMultiSelectionEnabled(false);
+            chooser.showOpenDialog(gp);
+            chooser.getSelectedFile();
+            if(chooser.getSelectedFile() == null){
+
+            }
+            else {
+                System.out.println(chooser.getSelectedFile().getPath());
+                FileReader myReader = new FileReader(chooser.getSelectedFile().getPath());
+                BufferedReader br = new BufferedReader(myReader);
+                String[] map;
+
+                for(int i = 0; i < 50; i++){
+                    String line= br.readLine();
+                    map = line.split(" "); // deliminator white space
+                    System.out.println(Arrays.toString(map));
+                    for(int l = 0; l < 50; l++){
+                        clicked[l + (i * rowYLength)] = tManager.tiles[Integer.parseInt(map[l])];
+                    }
+                }
+            }
+        }
+        catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
     public void drawTitle(){
         makeTextCenterX("Tile Editor",0,100,g2,new Font("arial",Font.ITALIC,24),Color.white);
